@@ -5,6 +5,7 @@ import com.sk.accounts.dto.ResponseDto;
 import com.sk.accounts.service.IAccountsService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,6 +22,14 @@ public class AccountsController {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(new ResponseDto("201", "Created Successfully"));
+    }
+
+    @GetMapping("/fetch")
+    public ResponseEntity<CustomerDto> fetchAccount(@RequestParam String mobileNumber){
+        CustomerDto customerDto = iAccountsService.fetchAccountDetails(mobileNumber);
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(customerDto);
     }
 
     @GetMapping("/hello")

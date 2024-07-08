@@ -1,9 +1,11 @@
 package com.sk.accounts.service.impl;
 
+import com.sk.accounts.dto.AccountsDto;
 import com.sk.accounts.dto.CustomerDto;
 import com.sk.accounts.entity.Accounts;
 import com.sk.accounts.entity.Customer;
 import com.sk.accounts.exception.CustomerAlreadyExistsException;
+import com.sk.accounts.mapper.AccountsMapper;
 import com.sk.accounts.mapper.CustomerMapper;
 import com.sk.accounts.repository.AccountsRepository;
 import com.sk.accounts.repository.CustomerRepository;
@@ -41,6 +43,7 @@ public class AccountsServiceImpl implements IAccountsService {
         accountsRepository.save(accounts);
     }
 
+
     private Accounts createNewAccount(Long customerId) {
         Accounts accounts = new Accounts();
         accounts.setCustomerId(customerId);
@@ -51,5 +54,24 @@ public class AccountsServiceImpl implements IAccountsService {
         accounts.setCreatedAt(LocalDateTime.now());
         accounts.setCreatedBy("Anonymous");
         return accounts;
+    }
+
+
+    @Override
+    public CustomerDto fetchAccountDetails(String mobileNumber) {
+        Customer foundCustomer = customerRepository.findByMobileNumber(mobileNumber).orElseThrow(
+                () -> new ResourceNotFoundException("Customer", "mobileNumber", mobileNumber)
+        );
+        Accounts accounts = accountsRepository.findByCustomerId(foundCustomer.getCustomerId()).orElseThrow(
+                () -> new ResourceNotFoundException("Accounts", "customerId", foundCustomer.getCustomerId().toString())
+        );
+
+        CustomerDto customerDto = CustomerMapper.mapToCustomerDto(foundCustomer, new CustomerDto());
+
+        AccountsDto accountsDto = AccountsMapper.mapToAccountsDto(accounts, new AccountsDto());
+
+        customerDto.setAccountsDto(accountsDto);
+
+        return customerDto;
     }
 }
