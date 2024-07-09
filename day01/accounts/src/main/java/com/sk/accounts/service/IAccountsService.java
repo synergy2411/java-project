@@ -7,4 +7,8 @@ public interface IAccountsService {
     void createAccount(CustomerDto customerDto);
 
     CustomerDto fetchAccountDetails(String mobileNumber);
+
+    boolean updateAccount(String mobileNumber, CustomerDto customerDto);
+
+    boolean deleteAccount(String mobileNumber);
 }
