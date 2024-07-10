@@ -1,0 +1,58 @@
+services:
+  configserver:
+    image: synergyhub/configserver:2.0.0
+    container_name: configserver
+    ports:
+      - "8071:8071"
+    healthcheck:
+      test: "curl --fail --silent localhost:8071/actuator/health/readiness | grep UP || exit 1"
+      interval: 10s
+      timeout: 5s
+      start_period: 10s
+      retries: 10
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - synergybank
+  accounts:
+    image: synergyhub/accounts:2.0.0
+    container_name: "accounts-ms"
+    ports:
+      - "8080:8080"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    environment:
+      SPRING_PROFILES_ACTIVE: default
+      SPRING_APPLICATION_NAME: "accounts"
+      SPRING_CONFIG_IMPORT: "configserver:http://configserver:8071"
+    depends_on:
+      configserver:
+        condition: service_healthy
+    networks:
+      - synergybank
+  cards:
+    image: synergyhub/cards:2.0.0
+    container_name: "cards-ms"
+    ports:
+      - "9000:9000"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    environment:
+      SPRING_PROFILES_ACTIVE: default
+      SPRING_APPLICATION_NAME: "cards"
+      SPRING_CONFIG_IMPORT: "configserver:http://configserver:8071"
+    depends_on:
+      configserver:
+        condition: service_healthy
+    networks:
+      - synergybank
+
+networks:
+  synergybank:
+    driver: "bridge"

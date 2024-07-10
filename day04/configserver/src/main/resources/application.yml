@@ -1,0 +1,36 @@
+server:
+  port: 8071
+spring:
+  application:
+    name: configserver
+  profiles:
+    active: git
+  cloud:
+    config:
+      server:
+        git:
+          uri: "https://github.com/synergy2411/synergy-config.git"
+          default-label: main
+          timeout: 5
+          clone-on-start: true
+          force-pull: true
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include : "*"
+  health:
+    readiness-state:
+      enabled: true
+    liveness-state:
+      enabled: true
+  endpoint:
+    health:
+      probes:
+        enabled: true

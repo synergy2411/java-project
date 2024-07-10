@@ -3,6 +3,10 @@ server:
 spring:
   application:
     name: "accounts"
+  profiles:
+    active: "prod"
+  config:
+    import: "optional:configserver:http://localhost:8071/"
   devtools:
     livereload:
       enabled: true
@@ -18,6 +22,3 @@ spring:
   h2:
     console:
       enabled: true
-
-build:
-  version: "1.0.0"
