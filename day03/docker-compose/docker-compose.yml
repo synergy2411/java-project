@@ -1,0 +1,29 @@
+services:
+  accounts:
+    image: synergyhub/accounts:1.0.0
+    container_name: "accounts"
+    ports:
+      - "8080:8080"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - synergybank
+
+  cards:
+    image: synergyhub/cards:1.0.0
+    container_name: "cards"
+    ports:
+      - "9000:9000"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - synergybank
+
+networks:
+  synergybank :
+    driver: "bridge"
+
