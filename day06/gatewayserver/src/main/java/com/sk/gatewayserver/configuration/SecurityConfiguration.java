@@ -23,7 +23,7 @@ public class SecurityConfiguration {
     public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity httpSecurity) {
         httpSecurity.authorizeExchange(exchange -> exchange
                 .pathMatchers(HttpMethod.GET).permitAll()
-                .pathMatchers("/synergybank/accounts/**").hasRole("ACCOUNTS")
+                .pathMatchers(HttpMethod.POST,"/synergybank/accounts/**").hasRole("ACCOUNTS")
                 .pathMatchers("/synergybank/loans/**").hasRole("LOANS")
                 .pathMatchers("/synergybank/cards/**").hasRole("CARDS")
                 ).oauth2ResourceServer(config -> config.jwt(spec -> spec.jwtAuthenticationConverter(grantedAuthorityExtractor())));
