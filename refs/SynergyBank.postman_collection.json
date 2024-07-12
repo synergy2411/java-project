@@ -1,0 +1,856 @@
+{
+	"info": {
+		"_postman_id": "dfe402e4-94e8-454f-98e5-455a0b0f87ff",
+		"name": "SynergyBank",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "accounts",
+			"item": [
+				{
+					"name": "createAccount",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Monica Geller\",\n    \"email\" :\"monica@test.com\",\n    \"mobileNumber\" :\"9876543210\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fetchAccount",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/fetch?mobileNumber=9876543210",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"fetch"
+							],
+							"query": [
+								{
+									"key": "mobileNumber",
+									"value": "9876543210"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateAccount",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Monica Geller\",\n    \"email\": \"monicageller@test.com\",\n    \"mobileNumber\": \"9876543210\",\n    \"accountsDto\": {\n        \"accountNumber\": \"10111616732\",\n        \"customerId\": 1,\n        \"accountType\": \"Current\",\n        \"branchAddress\": \"201, Main Road, London\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/update?mobileNumber=9876543210",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"update"
+							],
+							"query": [
+								{
+									"key": "mobileNumber",
+									"value": "9876543210"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteAccount",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/delete?mobileNumber=9876543210",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "mobileNumber",
+									"value": "9876543210"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fetchCustomerDetail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/fetchCustomerDetail/mobileNumber=9876543210",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"fetchCustomerDetail",
+								"mobileNumber=9876543210"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "cards",
+			"item": [
+				{
+					"name": "createCard",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/api/create?mobileNumber=9876543210",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"create"
+							],
+							"query": [
+								{
+									"key": "mobileNumber",
+									"value": "9876543210"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fetchCard",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/api/fetch?mobileNumber=9876543210",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"fetch"
+							],
+							"query": [
+								{
+									"key": "mobileNumber",
+									"value": "9876543210"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateCard",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mobileNumber\" : \"9876543210\",\n    \"cardNumber\": \"100165465367\",\n    \"cardType\": \"Debit Card\",\n    \"totalLimit\": 100000,\n    \"amountUsed\": 0,\n    \"availableAmount\": 100000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/api/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCard",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/api/delete?mobileNumber=9876543210",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "mobileNumber",
+									"value": "9876543210"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "loans",
+			"item": [
+				{
+					"name": "createLoan",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/api/create?mobileNumber=9876543210",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"create"
+							],
+							"query": [
+								{
+									"key": "mobileNumber",
+									"value": "9876543210"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fetchLoan",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/api/fetch?mobileNumber=9876543210",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"fetch"
+							],
+							"query": [
+								{
+									"key": "mobileNumber",
+									"value": "9876543210"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateLoan",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mobileNumber\": \"9876543210\",\n    \"loanNumber\": \"100717777069\",\n    \"loanType\": \"Car Loan\",\n    \"totalLoan\": 100000,\n    \"amountPaid\": 0,\n    \"outstandingAmount\": 100000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/api/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteLoan",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/api/delete?mobileNumber=9876543210",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "mobileNumber",
+									"value": "9876543210"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "gatewayserver",
+			"item": [
+				{
+					"name": "createAccount",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Monica Geller\",\n    \"email\" :\"monica@test.com\",\n    \"mobileNumber\" :\"9876543210\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8072/synergybank/accounts/api/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8072",
+							"path": [
+								"synergybank",
+								"accounts",
+								"api",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createCard",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8072/synergybank/cards/api/create?mobileNumber=9876543210",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8072",
+							"path": [
+								"synergybank",
+								"cards",
+								"api",
+								"create"
+							],
+							"query": [
+								{
+									"key": "mobileNumber",
+									"value": "9876543210"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createLoan",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8072/synergybank/loans/api/create?mobileNumber=9876543210",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8072",
+							"path": [
+								"synergybank",
+								"loans",
+								"api",
+								"create"
+							],
+							"query": [
+								{
+									"key": "mobileNumber",
+									"value": "9876543210"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fetchAccount",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8072/synergybank/accounts/api/fetch?mobileNumber=9876543210",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8072",
+							"path": [
+								"synergybank",
+								"accounts",
+								"api",
+								"fetch"
+							],
+							"query": [
+								{
+									"key": "mobileNumber",
+									"value": "9876543210"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fetchLoans",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8072/synergybank/loans/api/fetch?mobileNumber=9876543210",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8072",
+							"path": [
+								"synergybank",
+								"loans",
+								"api",
+								"fetch"
+							],
+							"query": [
+								{
+									"key": "mobileNumber",
+									"value": "9876543210"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fetchCard",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8072/synergybank/cards/api/fetch?mobileNumber=9876543210",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8072",
+							"path": [
+								"synergybank",
+								"cards",
+								"api",
+								"fetch"
+							],
+							"query": [
+								{
+									"key": "mobileNumber",
+									"value": "9876543210"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fetchCustomerDetail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8072/synergybank/accounts/api/fetchCustomerDetails?mobileNumber=9876543211",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8072",
+							"path": [
+								"synergybank",
+								"accounts",
+								"api",
+								"fetchCustomerDetails"
+							],
+							"query": [
+								{
+									"key": "mobileNumber",
+									"value": "9876543211"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "gatewayserver_security",
+			"item": [
+				{
+					"name": "LoansBuildInfo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8072/synergybank/loans/api/build-info",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8072",
+							"path": [
+								"synergybank",
+								"loans",
+								"api",
+								"build-info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateAccountSecured",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "tokenName",
+									"value": "Access Token",
+									"type": "string"
+								},
+								{
+									"key": "client_authentication",
+									"value": "body",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "openid email profile",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "RNAtJUsw15F7o5xmgxGHpP3rLrgNFzzl",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "synergybank-cc",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "http://localhost:7080/realms/master/protocol/openid-connect/token",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Monica Geller\",\n    \"email\" :\"monica@test.com\",\n    \"mobileNumber\" :\"9876543210\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8072/synergybank/accounts/api/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8072",
+							"path": [
+								"synergybank",
+								"accounts",
+								"api",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateCardSecured",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "tokenName",
+									"value": "Access Token",
+									"type": "string"
+								},
+								{
+									"key": "client_authentication",
+									"value": "body",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "openid email profile",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "RNAtJUsw15F7o5xmgxGHpP3rLrgNFzzl",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "synergybank-cc",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "http://localhost:7080/realms/master/protocol/openid-connect/token",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8072/synergybank/cards/api/create?mobileNumber=9876543211",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8072",
+							"path": [
+								"synergybank",
+								"cards",
+								"api",
+								"create"
+							],
+							"query": [
+								{
+									"key": "mobileNumber",
+									"value": "9876543211"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateLoansSecured",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "tokenName",
+									"value": "Access Token",
+									"type": "string"
+								},
+								{
+									"key": "client_authentication",
+									"value": "body",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "openid email profile",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "RNAtJUsw15F7o5xmgxGHpP3rLrgNFzzl",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "synergybank-cc",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "http://localhost:7080/realms/master/protocol/openid-connect/token",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8072/synergybank/loans/api/create?mobileNumber=9876543211",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8072",
+							"path": [
+								"synergybank",
+								"loans",
+								"api",
+								"create"
+							],
+							"query": [
+								{
+									"key": "mobileNumber",
+									"value": "9876543211"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FetchCustomerDetailsSecured",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8072/synergybank/accounts/api/fetchCustomerDetails?mobileNumber=9876543212",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8072",
+							"path": [
+								"synergybank",
+								"accounts",
+								"api",
+								"fetchCustomerDetails"
+							],
+							"query": [
+								{
+									"key": "mobileNumber",
+									"value": "9876543212"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
