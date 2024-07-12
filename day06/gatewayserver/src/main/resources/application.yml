@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: "gatewayserver"
+  config:
+    import : "optional:configserver:http://localhost:8071/"
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lowerCaseServiceId: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    gateway:
+      enabled: true
+  info:
+    env:
+      enabled: true
+info:
+  app:
+    name: "Gateway Server"
+    description: "Gateway Server for Synergy Bank"
+    version: "1.0.0"
