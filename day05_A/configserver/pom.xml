@@ -67,7 +67,7 @@
 				<version>3.4.1</version>
 				<configuration>
 					<to>
-						<image>synergyhub/${project.artifactId}:2.0.0</image>
+						<image>synergyhub/${project.artifactId}:8.0.0</image>
 					</to>
 				</configuration>
 			</plugin>

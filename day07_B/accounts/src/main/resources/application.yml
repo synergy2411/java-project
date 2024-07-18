@@ -21,12 +21,12 @@ spring:
       enabled: true
     restart:
       enabled: true
-#  rabbitmq:
-#    host: localhost
-#    port: 5672
-#    username: guest
-#    password: guest
-#    connection-timeout: 10s
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    connection-timeout: 10s
   cloud:
     stream:
       bindings:
@@ -35,7 +35,7 @@ spring:
         updateCommunicationStatus-in-0:
           destination: communication-sent
           group: ${spring.application.name}
-      kafka:
-        binder:
-          brokers:
-            - localhost:9092
+#      kafka:
+#        binder:
+#          brokers:
+#            - localhost:9092

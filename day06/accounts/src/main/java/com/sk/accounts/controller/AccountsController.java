@@ -17,6 +17,11 @@ import org.springframework.web.bind.annotation.*;
 @Validated
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(
+        origins = "http://localhost:4200",
+        allowedHeaders = "*",
+        methods = {RequestMethod.POST}
+)
 //@AllArgsConstructor
 public class AccountsController {
 

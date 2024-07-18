@@ -1,0 +1,49 @@
+{
+  "hash": "965c588e",
+  "configHash": "109c9ed4",
+  "lockfileHash": "19b666da",
+  "browserHash": "ea3cf946",
+  "optimized": {
+    "@angular/common/http": {
+      "src": "../../../../../node_modules/@angular/common/fesm2022/http.mjs",
+      "file": "@angular_common_http.js",
+      "fileHash": "cdcb26f0",
+      "needsInterop": false
+    },
+    "@angular/core": {
+      "src": "../../../../../node_modules/@angular/core/fesm2022/core.mjs",
+      "file": "@angular_core.js",
+      "fileHash": "f75f7975",
+      "needsInterop": false
+    },
+    "@angular/platform-browser": {
+      "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
+      "file": "@angular_platform-browser.js",
+      "fileHash": "b38009f7",
+      "needsInterop": false
+    },
+    "@angular/router": {
+      "src": "../../../../../node_modules/@angular/router/fesm2022/router.mjs",
+      "file": "@angular_router.js",
+      "fileHash": "ff8cc63e",
+      "needsInterop": false
+    },
+    "angular-oauth2-oidc": {
+      "src": "../../../../../node_modules/angular-oauth2-oidc/fesm2022/angular-oauth2-oidc.mjs",
+      "file": "angular-oauth2-oidc.js",
+      "fileHash": "fbf2b8da",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-T42IWD7F": {
+      "file": "chunk-T42IWD7F.js"
+    },
+    "chunk-UF7QPMUU": {
+      "file": "chunk-UF7QPMUU.js"
+    },
+    "chunk-CLR4DVO6": {
+      "file": "chunk-CLR4DVO6.js"
+    }
+  }
+}
